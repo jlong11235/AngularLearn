@@ -22,13 +22,10 @@ export class NavComponent implements OnInit {
     this.authService.login(this.model).subscribe(next => {
       this.alertify.success('Logged in successfully');
     }, error => {
-<<<<<<< .merge_file_a04552
       console.log(error);
-=======
       this.alertify.error(error);
     }, () => {
       this.router.navigate(['/members']);
->>>>>>> .merge_file_a05456
     });
   }
 
