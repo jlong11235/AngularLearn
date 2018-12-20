@@ -3,6 +3,7 @@ import {environment} from "../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {User} from "../_models/user";
+import {Photo} from "../_models/photo";
 
 
 @Injectable({
@@ -23,5 +24,13 @@ export class UserService {
 
   updateUser(id: number, user: User){
     return this.http.put(this.baseUrl + 'users/' + id, user);
+  }
+
+  setMainPhoto(userId: number, photoId: number) {
+    return this.http.post(this.baseUrl + 'users/' + userId + '/photos/' + photoId + '/setMain', {});
+  }
+
+  deletePhoto(userId: number, photoId: number){
+    return this.http.delete(this.baseUrl + 'users/' + userId + '/photos/' + photoId);
   }
 }
